@@ -6,13 +6,12 @@
 //
 import Foundation
 
-// MARK: - APIResponse
+
 struct APIResponse: Codable {
-    let data: Datum
+    let data: Data
 }
 
-// MARK: - Data
-struct Datum: Codable {
+struct Data: Codable {
     let categories: [Category]
     let excludeList: [[ExcludeList]]
 
@@ -22,7 +21,6 @@ struct Datum: Codable {
     }
 }
 
-// MARK: - Category
 struct Category: Codable {
     let categoryID: String
     let filters: [Filter]
@@ -34,7 +32,6 @@ struct Category: Codable {
     }
 }
 
-// MARK: - Filter
 struct Filter: Codable {
     let filterDefault: Int
     let id, name: String
@@ -45,7 +42,6 @@ struct Filter: Codable {
     }
 }
 
-// MARK: - ExcludeList
 struct ExcludeList: Codable, Hashable {
     let categoryID, filterID: String
     
@@ -62,3 +58,4 @@ extension ExcludeList: Equatable {
                 lhs.filterID == rhs.filterID
         }
 }
+
